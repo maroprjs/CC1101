@@ -1,3 +1,8 @@
+/*
+ *
+ * This example currently obsolete
+ *
+ */
 #include <SPI.h>
 //#include <EEPROM.h>
 extern "C" {

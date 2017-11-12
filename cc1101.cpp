@@ -51,7 +51,7 @@ extern "C" {
  /**
   * PATABLE
   */
-//const byte paTable[8] = {0x60, 0x60, 0x60, 0x60, 0x60, 0x60, 0x60, 0x60};
+const byte paTable[8] = {0x00, 0x60, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
 /**
  * CC1101
@@ -204,7 +204,7 @@ void CC1101::reset(void)
 
   cc1101_Deselect();                    // Deselect CC1101
 
-  setCCregs();                          // Reconfigure CC1101
+ setCCregs();                          // Reconfigure CC1101
 }
 
 /**
@@ -493,7 +493,7 @@ byte CC1101::receiveData(CCPACKET * packet)
   byte rxBytes = readStatusReg(CC1101_RXBYTES);
 
   // Any byte waiting to be read and no overflow?
-  if (rxBytes & 0x7F && !(rxBytes & 0x80))
+  if (rxBytes & 0x7F)
   {
     // Read data length
     packet->length = readConfigReg(CC1101_RXFIFO);
